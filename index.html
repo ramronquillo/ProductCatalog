@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Catalog</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .catalog {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .product-card {
+      width: 200px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 10px;
+      padding: 10px;
+      background-color: #a98b9c;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .product-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    .product-price {
+      font-size: 14px;
+      color: #000000;
+      margin-bottom: 8px;
+    }
+
+    .buy-btn {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      text-align: center;
+      background-color: #201a42;
+      color: #fffcff;
+      text-decoration: none;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body style="background-color:rgb(94, 23, 58);">
+
+<div class="catalog" id="productCatalog">
+  <!-- Product cards will be dynamically added here using JavaScript -->
+</div>
+
+<script>
+  const products = [
+    { id: 1, title: 'CONVERSE', price: '$65.99', image: 'product1.jpg' },
+    { id: 2, title: 'REBOOK', price: '$49.99', image: 'product2.jpg' },
+    { id: 3, title: 'SKECHERS', price: '$56.99', image: 'product3.jpg' },
+    { id: 4, title: 'ADIDAS', price: '$49.99', image: 'product4.jpg' },
+    { id: 5, title: 'VANS', price: '$53.12', image: 'product5.jpg' },
+    { id: 6, title: 'K-SWISS', price: '$64.23', image: 'product6.jpg' },
+    { id: 7, title: 'PUMA', price: '$59.66', image: 'product7.jpg' },
+    { id: 8, title: 'NIKE DUNKS', price: '$83.97', image: 'product8.jpg' },
+    { id: 9, title: 'NIKE AIR JORDAN 1', price: '$95.94', image: 'product9.jpg' },
+    { id: 10, title: 'ONITSUKA TIGER', price: '$135', image: 'product10.jpg' },
+    { id: 11, title: 'ADIDAS YEEZY', price: '$119', image: 'product11.jpg' },
+    { id: 12, title: 'MSCHF big red Astro Boy boots ', price: '$350', image: 'product12.jpg' },
+  ];
+
+  const catalogElement = document.getElementById('productCatalog');
+
+  products.forEach(product => {
+    const productCard = document.createElement('div');
+    productCard.classList.add('product-card');
+
+    const productImg = document.createElement('img');
+    productImg.src = product.image;
+    productImg.alt = product.title;
+    productImg.classList.add('product-img');
+
+    const productTitle = document.createElement('div');
+    productTitle.innerText = product.title;
+    productTitle.classList.add('product-title');
+
+    const productPrice = document.createElement('div');
+    productPrice.innerText = product.price;
+    productPrice.classList.add('product-price');
+
+    const buyBtn = document.createElement('button');
+    buyBtn.innerText = 'Buy Now';
+    buyBtn.classList.add('buy-btn');
+
+    productCard.appendChild(productImg);
+    productCard.appendChild(productTitle);
+    productCard.appendChild(productPrice);
+    productCard.appendChild(buyBtn);
+
+    catalogElement.appendChild(productCard);
+  });
+</script>
+
+</body>
+</html>
